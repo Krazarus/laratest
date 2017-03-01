@@ -51,8 +51,8 @@ class LoginController extends Controller
         return 'name';
     }
 
-    public function login(Request $request)
-    {
-        dd('suka');
-    }
+//    public function login(Request $request)
+//    {
+//        dd('sssss');
+//    }
 }
