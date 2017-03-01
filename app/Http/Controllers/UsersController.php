@@ -85,8 +85,6 @@ class UsersController extends Controller
      */
     public function update(StoreUser $request, $id)
     {
-
-        dd($request->all());
         $user = User::findOrFail($id);
         $user->update($request->all());
         return redirect()->route('users.index', $user);

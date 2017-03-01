@@ -17,9 +17,9 @@ class ConfirmMyAccount extends Mailable
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param User $user
      */
-    public function __construct($user)
+    public function __construct(User $user)
     {
         $this->user = $user;
     }

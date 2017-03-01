@@ -29,8 +29,7 @@
                     <td>{{ $proxy->status }}</td>
 
                     <td>
-                        <button type="button" class="btn btn-warning">Default</button>
-                        <button type="button" class="btn btn-danger">Default</button>
+                        <a href="{{ route('proxies.edit', $proxy->id) }}" class="btn btn-warning">Edit</a>
                     </td>
                 </tr>
                 @endforeach

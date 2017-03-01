@@ -19,6 +19,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin'),
             'role' => 'admin',
+            'verified' => 1,
+            'token' => null,
         ]);
 
         User::create([
@@ -26,6 +28,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'customer@gmail.com',
             'password' => bcrypt('customer'),
             'role' => 'customer',
+            'verified' => 1,
+            'token' => null,
         ]);
 
         for ($i = 0; $i < 20; $i++) {

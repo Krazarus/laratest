@@ -17,6 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+Route::get('register/confirm/{token}', 'Auth\RegisterController@confirmEmail')->name('register.confirm');
+
+//Route::post('login', 'Auth\LoginController@postLogin');
+
+
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     $this->get('login', 'Auth\LoginController@showLoginForm');
     $this->post('login', 'Auth\LoginController@login')->name('admin.login');

@@ -27,11 +27,35 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+
     public function admin($role = null)
     {
         if($role){
             return $this->role == $role;
         }
         return !! $this->role;
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function($user){
+            $user->token = str_random(30);
+        });
+    }
+
+//    public function setPasswordAttribute($password)
+//    {
+//        $this->attributes['password'] = bcrypt($password);
+//    }
+
+    public function confirmEmail()
+    {
+        $this->verified = true;
+        $this->token = null;
+
+        $this->save();
     }
 }

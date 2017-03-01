@@ -11,6 +11,8 @@
 
     <h1>Welcome to Proxy list, {{ $user->name }}</h1>
 
+    <p>We just need you to <a href="{{ url("register/confirm/{$user->token}") }}">confirm your email address</a></p>
+
 </body>
 </html>
 

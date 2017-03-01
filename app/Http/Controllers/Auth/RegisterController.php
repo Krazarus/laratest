@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Mail\ConfirmMyAccount;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -71,6 +73,42 @@ class RegisterController extends Controller
 
         \Mail::to($user)->send(new ConfirmMyAccount($user));
 
+//        flash('Please confirm your email address.');
+
+
         return $user;
+
+    }
+
+
+    /**
+     * @param $token
+     * @return string
+     */
+    public function confirmEmail($token)
+    {
+        $user = User::whereToken($token)->firstOrFail()->confirmEmail();
+
+
+        $user->verified = true;
+        $user->token = null;
+        $user->save();
+        return redirect('/login')->with('status', 'Pew pew.');
+    }
+
+    public function register(Request $request)
+    {
+        $validator = $this->validator($request->all());
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        $user = $this->create($request->all());
+
+        return redirect('/login')->with('status', 'We sent you an activation code. Check your email.');
+//        return redirect($this->redirectPath());
+
     }
 }

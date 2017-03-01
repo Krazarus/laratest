@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProxy;
 use App\Proxy;
 use Illuminate\Http\Request;
 
@@ -47,18 +48,21 @@ class ProxiesController extends Controller
      */
     public function show($id)
     {
-        //
+        $proxies = User::findOrFail($id);
+        return view('proxies.edit', compact('proxies'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param StoreProxy $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $proxy = Proxy::findOrFail($id);
+        return view('proxies.edit', compact('proxy'));
     }
 
     /**
@@ -68,9 +72,11 @@ class ProxiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProxy $request, $id)
     {
-        //
+        $proxy = Proxy::findOrFail($id);
+        $proxy->update($request->all());
+        return redirect()->route('proxies.index', $proxy);
     }
 
     /**

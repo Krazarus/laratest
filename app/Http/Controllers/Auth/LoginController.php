@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class LoginController extends Controller
 {
@@ -51,8 +53,25 @@ class LoginController extends Controller
         return 'name';
     }
 
-//    public function login(Request $request)
+
+
+//    public function postLogin(Request $request)
 //    {
-//        dd('sssss');
+//        $this->validate($request, ['name' => 'required', 'password' => 'required', 'verified' == 1]);
+//        if (Auth::attempt($this->credentials($request))) {
+//            return 'You are now confirmed. Please login.';
+//        }
+//        return 'Could not sign you in.';
 //    }
+
+    public function authenticated(Request $request, $user)
+    {
+        if (!$user->verified) {
+            auth()->logout();
+            return back()->with('warning', 'You need to confirm your account. We have sent you an activation code, please check your email.');
+        }
+        return redirect()->intended($this->redirectPath());
+    }
+
+
 }

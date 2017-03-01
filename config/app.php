@@ -183,6 +183,8 @@ return [
 
         'Yangqi\Htmldom\HtmldomServiceProvider',
 
+        Laracasts\Flash\FlashServiceProvider::class,
+
     ],
 
     /*
