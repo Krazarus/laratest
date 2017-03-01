@@ -11,7 +11,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Username</label>
+                            <label for="name" class="col-md-4 control-label">Email</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="name" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -54,7 +54,7 @@
                                     Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link" href="{{ route('admin.password.request') }}">
                                     Forgot Your Password?
                                 </a>
                             </div>

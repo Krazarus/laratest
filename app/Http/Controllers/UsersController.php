@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUser;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,11 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('admin:admin');
+    }
+
     public function index()
     {
         $users = User::all();
@@ -77,8 +83,10 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreUser $request, $id)
     {
+
+        dd($request->all());
         $user = User::findOrFail($id);
         $user->update($request->all());
         return redirect()->route('users.index', $user);

@@ -12,6 +12,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+
+        $faker = Faker\Factory::create();
         User::create([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
@@ -25,5 +27,13 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('customer'),
             'role' => 'customer',
         ]);
+
+        for ($i = 0; $i < 20; $i++) {
+            User::create([
+                'name' => $faker->userName,
+                'email' => $faker->email,
+                'password' => $faker->password,
+            ]);
+        }
     }
 }

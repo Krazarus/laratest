@@ -8,6 +8,16 @@
                 <h1>Create new user</h1>
                 <hr>
 
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 {!! Form::open(['route' => 'users.store']) !!}
 
                     @include('users.partials.form', ['buttonText' => 'Create new user'])

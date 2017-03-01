@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Proxy;
 use Illuminate\Http\Request;
 
 class ProxiesController extends Controller
@@ -13,7 +14,8 @@ class ProxiesController extends Controller
      */
     public function index()
     {
-        return view('proxies.proxies');
+        $proxies = Proxy::all();
+        return view('proxies.proxies', [ 'proxies' => $proxies]);
     }
 
     /**

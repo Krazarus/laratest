@@ -8,10 +8,6 @@
     {{ Form::text('email', null, array('class'=>'form-control')) }}
 </div>
 
-<div class="form-group">
-    {{ Form::label('password', 'Password:') }}
-    {{ Form::password('password', ['class'=>'form-control']) }}
-</div>
 
 <div class="form-group">
     {{  Form::select('role', array(

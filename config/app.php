@@ -181,6 +181,8 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
+        'Yangqi\Htmldom\HtmldomServiceProvider',
+
     ],
 
     /*
@@ -234,6 +236,9 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+
+        'Htmldom' => 'Yangqi\Htmldom\Htmldom',
+
 
     ],
 

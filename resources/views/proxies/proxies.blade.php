@@ -18,20 +18,22 @@
                 </tr>
                 </thead>
                 <tbody>
+                @foreach( $proxies as $proxy )
                 <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                    <td>john@example.com</td>
-                    <td>john@example.com</td>
-                    <td>john@example.com</td>
-                    <td>john@example.com</td>
+                    <td>{{ $proxy->ip }}</td>
+                    <td>{{ $proxy->port }}</td>
+                    <td>{{ $proxy->location }}</td>
+                    <td>{{ $proxy->speed }}</td>
+                    <td>{{ $proxy->type }}</td>
+                    <td>{{ $proxy->anon }}</td>
+                    <td>{{ $proxy->status }}</td>
+
                     <td>
                         <button type="button" class="btn btn-warning">Default</button>
                         <button type="button" class="btn btn-danger">Default</button>
                     </td>
                 </tr>
-
+                @endforeach
                 </tbody>
             </table>
         </div>

@@ -7,8 +7,7 @@
                 <h1>Users</h1>
             </div>
             <div class="col-md-3">
-                <a href="{{ route('users.create') }}" class="btn btn-primary pull-right">Create New
-                    User</a>
+
             </div>
 
             <table class="table">
