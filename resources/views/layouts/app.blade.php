@@ -46,6 +46,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('proxies.index') }}">Proxies</a></li>
                         <li><a href="{{ route('users.index') }}">Users</a></li>
+                        <li><a href="{{ route('checks.index') }}">Checks</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

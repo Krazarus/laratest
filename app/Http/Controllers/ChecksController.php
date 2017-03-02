@@ -2,21 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProxy;
-use App\Proxy;
+use App\Check;
 use Illuminate\Http\Request;
 
-class ProxiesController extends Controller
+class ChecksController extends Controller
 {
-    /**
-     * Instantiate a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('admin:admin')->except('index');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -24,8 +14,8 @@ class ProxiesController extends Controller
      */
     public function index()
     {
-        $proxies = Proxy::all();
-        return view('proxies.proxies', [ 'proxies' => $proxies]);
+        $checks = Check::all();
+        return view('check.checks', [ 'checks' => $checks]);
     }
 
     /**
@@ -57,21 +47,18 @@ class ProxiesController extends Controller
      */
     public function show($id)
     {
-        $proxies = User::findOrFail($id);
-        return view('proxies.edit', compact('proxies'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param StoreProxy $request
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $proxy = Proxy::findOrFail($id);
-        return view('proxies.edit', compact('proxy'));
+        //
     }
 
     /**
@@ -81,11 +68,9 @@ class ProxiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreProxy $request, $id)
+    public function update(Request $request, $id)
     {
-        $proxy = Proxy::findOrFail($id);
-        $proxy->update($request->all());
-        return redirect()->route('proxies.index', $proxy);
+        //
     }
 
     /**

@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'ProxiesController@index');
+
+
 
 Auth::routes();
 
@@ -44,6 +45,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
 Route::resource('proxies', 'ProxiesController');
 Route::resource('users', 'UsersController');
+Route::resource('checks', 'ChecksController');
 
 //Route::get('test', ['middleware' => 'admin:admin', function(){
 //    return 'Pew pew';

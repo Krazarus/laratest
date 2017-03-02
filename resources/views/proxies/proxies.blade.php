@@ -14,7 +14,9 @@
                     <th>Type</th>
                     <th>Anonymity</th>
                     <th>Last check</th>
+                    @if (Auth::user('admin:admin'))
                     <th>Action</th>
+                    @endif
                 </tr>
                 </thead>
                 <tbody>

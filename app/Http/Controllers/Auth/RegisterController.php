@@ -87,13 +87,10 @@ class RegisterController extends Controller
      */
     public function confirmEmail($token)
     {
+
         $user = User::whereToken($token)->firstOrFail()->confirmEmail();
 
-
-        $user->verified = true;
-        $user->token = null;
-        $user->save();
-        return redirect('/login')->with('status', 'Pew pew.');
+        return redirect('/login')->with('status', 'You are now confirmed. Please login.');
     }
 
     public function register(Request $request)
@@ -108,7 +105,7 @@ class RegisterController extends Controller
         $user = $this->create($request->all());
 
         return redirect('/login')->with('status', 'We sent you an activation code. Check your email.');
-//        return redirect($this->redirectPath());
+
 
     }
 }
