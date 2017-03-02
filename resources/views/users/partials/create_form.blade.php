@@ -1,7 +1,25 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Krazarus
- * Date: 3/2/2017
- * Time: 12:53 PM
- */
+<div class="form-group">
+{{ Form::label('name', 'Name:') }}
+{{ Form::text('name', null, array('class'=>'form-control')) }}
+</div>
+
+<div class="form-group">
+    {{ Form::label('email', 'Email:') }}
+    {{ Form::text('email', null, array('class'=>'form-control')) }}
+</div>
+
+<div class="form-group">
+    {{ Form::label('password', 'Password:') }}
+    {{ Form::text('password', null, array('class'=>'form-control')) }}
+</div>
+
+<div class="form-group">
+    {{  Form::select('role', array(
+    'admin' => 'admin',
+    'customer' => 'customer',
+    'user' => 'user'), null ,array('class'=>'form-control')) }}
+</div>
+
+<div class="form-group">
+    {{ Form::submit('Create new User', ['class'=>'btn btn-success']) }}
+</div>

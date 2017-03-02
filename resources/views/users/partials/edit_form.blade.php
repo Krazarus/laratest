@@ -8,7 +8,6 @@
     {{ Form::text('email', null, array('class'=>'form-control')) }}
 </div>
 
-
 <div class="form-group">
     {{  Form::select('role', array(
     'admin' => 'admin',
@@ -17,7 +16,5 @@
 </div>
 
 <div class="form-group">
-
     {{ Form::submit($buttonText, ['class'=>'btn btn-success']) }}
-
 </div>

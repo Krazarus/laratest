@@ -20,12 +20,11 @@
 
                 {!! Form::open(['route' => 'users.store']) !!}
 
-                    @include('users.partials.form', ['buttonText' => 'Create new user'])
+                @include('users.partials.create_form')
 
                 {!! Form::close() !!}
 
             </div>
-
 
         </div>
     </div>

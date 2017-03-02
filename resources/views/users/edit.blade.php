@@ -20,7 +20,7 @@
 
                 {!! Form::model($user, ['method' => 'PATCH', 'route' => ['users.update', $user->id]]) !!}
 
-                @include('users.partials.form', ['buttonText' => 'Update user'])
+                @include('users.partials.edit_form', ['buttonText' => 'Update user'])
 
                 {!! Form::close() !!}
 

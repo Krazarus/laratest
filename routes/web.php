@@ -14,14 +14,10 @@
 
 Route::get('/', 'ProxiesController@index');
 
-
-
 Auth::routes();
-
 
 Route::get('register/confirm/{token}', 'Auth\RegisterController@confirmEmail')->name('register.confirm');
 
-//Route::post('login', 'Auth\LoginController@postLogin');
 
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
@@ -37,22 +33,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     $this->post('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('admin.password.reset');
 
     Route::get('/', 'HomeController@index');
-//    Route::group(['middleware' => 'admin:admin'], function () {
-//        Auth::routes();
-//    });
+
 });
 
 
 Route::resource('proxies', 'ProxiesController');
 Route::resource('users', 'UsersController');
 Route::resource('checks', 'ChecksController');
-
-//Route::get('test', ['middleware' => 'admin:admin', function(){
-//    return 'Pew pew';
-//}]);
-
-
-
 
 
 
