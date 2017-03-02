@@ -11,7 +11,9 @@ $ php artisan db:seed
 $ php artisan key:generate
 
 create cron task:
+
 $ crontab -e
+
 add: * * * * * php /path/to/artisan schedule:run » /dev/null 2>&1
 
 
